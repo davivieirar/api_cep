@@ -38,7 +38,8 @@ const findByCep = (input) => {
 
       let cidade = document.getElementById("cidade");
       cidade.value = json.localidade
-        
+
+      
     });
 };
 
