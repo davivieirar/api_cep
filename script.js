@@ -2,6 +2,9 @@ const findEstados = () => {
   fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados`)
     .then((response) => response.json())
     .then((json) => {
+      //Ordenar pelo atributo nome
+      json.sort((a, b) => (a.nome > b.nome) ? 1 : -1)
+
       // console.log(json)
       let estados = "";
       json.forEach(
@@ -46,7 +49,8 @@ const findByCep = (input) => {
       let cidade = document.getElementById("cidade");
       cidade.value = json.localidade
 
-
+      // Redireciona o cursor ao input com mesmo id do parametro do document.getElementById()
+      document.getElementById('numero').focus();
     });
 };
 
